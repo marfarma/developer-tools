@@ -231,12 +231,8 @@ var DeveloperTools = {
   showAdvancedFields : function( $feature )
   {
       //show hidden advanced fields
-      var $advancedFields = $feature.find('.advanced.hidden');
+      var $advancedFields = $feature.find('.advanced');
       this.showHide( $advancedFields );
-      //hide addvance button
-      var $advancedButton = $feature.find('.feature_buttons a.show_advanced');
-      this.showHide( $advancedButton );
-       
   },
   
   showHide : function( $obj )
