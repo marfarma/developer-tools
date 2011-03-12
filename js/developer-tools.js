@@ -113,9 +113,9 @@ var DeveloperTools = {
       }
     }
     if( totalRequiredValues == setRequiredValues )
-      $obj.find('.feature_buttons .remove_group, .feature_buttons .code_button').removeClass('hidden');
+      $obj.find('.feature_buttons .code_button').removeClass('hidden');
     else
-      $obj.find('.feature_buttons .remove_group, .feature_buttons .code_button').addClass('hidden');
+      $obj.find('.feature_buttons .code_button').addClass('hidden');
   },  
   
   alphaNumericInit : function( $obj )
