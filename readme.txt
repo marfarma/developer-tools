@@ -73,6 +73,7 @@ If you're willing to help translate my plugin please contact me.
 * Moved Application.php to com/app/MainApplication.php
 * Removed deprecated call_user_method() function in MainApplication.php to fix bug when loading fieldData models
 * Updated "advanced fields" button bug
+* Fixed remove button bug
 
 = 1.0.2 =
 * Updated: SQL Buddy database library to version 1.3.3
