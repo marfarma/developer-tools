@@ -12,7 +12,7 @@ Streamline your WordPress development!  Creates admin UI for many of the code-en
 
 Streamline your WordPress development!
 
-The Developer Tools plugin for WordPress is the ultimate WordPress development tool.  It creates an admin user interface for many of the code-enabled features in WordPress and commonly used web development libraries.  The Developer Tools plugin can also generate template code for theme development.
+The Developer Tools plugin creates an admin user interface for many of the code-enabled features in WordPress and commonly used JavaScript libraries.  It also generate template code for theme development.
 
 <strong>[Plugin home page](http://developertools.kjmeath.com/ "Plugin home page")</strong>
 
