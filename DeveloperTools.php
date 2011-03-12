@@ -23,7 +23,7 @@ else
 function developer_tools_init()
 {
   add_action('admin_init', 'developer_tools_menu_item_script');
-  include_once 'Application.php';
+  include_once WP_PLUGIN_DIR . '/developer-tools/com/app/MainApplication.php';
 }
 
 function developer_tools_menu_item_script()

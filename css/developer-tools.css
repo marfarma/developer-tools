@@ -749,6 +749,10 @@ li.krumo-footnote{
   cursor: pointer;
 }
 
+#developer_tools_js_required{
+  color: red;
+}
+
 .no_javascript{
   width: 500px; 
   display: inline-block;
