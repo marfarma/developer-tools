@@ -9,7 +9,7 @@ Min WP Version: 3.0
 Max WP Version: 3.1
 */
 
-define( "DEVELOPER_TOOLS_VERSION", "1.0." );
+define( "DEVELOPER_TOOLS_VERSION", "1.0.4" );
 4
 if (version_compare(PHP_VERSION, '5.0.0', '<'))
 {
