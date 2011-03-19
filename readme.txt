@@ -4,7 +4,7 @@ Donate link: http://developertools.kjmeath.com/donate/
 Tags: theme, developer, development, tool, tools, enqueue, script, scripts, cufon, sifr, swf, object, dd, belated, png, fix, ie, ie6, html5, shiv, google, analytics, excerpt, length, menu, menus, sidebar, sidebars, custom, taxonomy, taxonomies, post, type, types, feature, featured, image, thumbnail, thumbnails, disable, meta, box, boxes, field, fields, size, quality, core, update, updates, plugin, tinymce, auto, formating, auto-formating, hide, admin, login, dashboard, widgets, widget, krumo, database, backup, db, sql, buddy, sqlbuddy, management, login, log-in, log, in, multisite, remove, admin, tool, bar
 Requires at least: 3.0.0
 Tested up to: 3.1
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 
 Streamline your WordPress development!  Creates admin UI for many of the code-enabled features in WP and includes commonly used JavaScript libraries.
 
@@ -68,6 +68,9 @@ If you're willing to help translate my plugin please contact me.
 1. Developer Tools - Settings
 
 == Changelog ==
+
+= 1.0.8 = 
+* Included missing models dir
 
 = 1.0.7 =
 * Fixed Warning: array_merge() [function.array-merge]: Argument #2 bug when saving
