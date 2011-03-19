@@ -3,7 +3,6 @@ new DeveloperTools();
 class DeveloperTools { 
   private $_data;
   private $_hiddenFeatures;
-  private $_checkSavedValues;
   private $_setSavedValues = false;
   private $_errors = false;
   private $_messages = false; 
@@ -442,7 +441,7 @@ class DeveloperTools {
         {
           $this->_advancedFields = true;
           $this->_advancedFieldsCounter++;
-          if( empty($value) || $value == null || $value == '' || $value == false )
+          if( !strlen($value) )
           {
             $fieldSettings['advanced'] = 'hidden';
           }
@@ -453,7 +452,7 @@ class DeveloperTools {
           }
         }
     
-        if( $fieldSettings['required'] && ( empty($value) || $value == null || $value == '' || $value == false ) )
+        if( $fieldSettings['required'] && ( strlen($value) ) )
           $this->_valueNotSet = true;
           
         if( $fieldSettings['fieldDataMethod'] )
@@ -533,19 +532,18 @@ class DeveloperTools {
       {
         case 'save' :
           if( !wp_verify_nonce( $wpnonce, 'developer-tools-save' ) ) die( __( 'Developer Tools security failure: Error code: 2', 'developer-tools' ) ); 
-          if( $_POST )
+          if( $_POST['hidden'] ||  $_POST['dt'] )
           {
-            // we dont need these values saved
-            unset( $_POST['_wpnonce'] );
-            unset( $_POST['_wp_http_referer'] );
-            
-            $this->_checkSavedValues = $_POST;
-            $_POST = null;
+            if ( $_POST['hidden'] )
+              $this->_setSavedValues['hidden'] = $_POST['hidden'];
+                          
             $this->_CheckSavedValues();
-            if( $this->_setSavedValues && update_option( 'developer-tools-values', $this->_setSavedValues ) )
+            
+            if( $this->_setSavedValues && update_option( 'developer-tools-values', maybe_unserialize($this->_setSavedValues) ) )
                 $this->_messages[] = __( 'Options saved.', 'developer-tools' );
             else
                 $this->_errors[] = __( 'No values were set.', 'developer-tools' );
+
           }
         break;
         case 'reset' :
@@ -599,49 +597,20 @@ class DeveloperTools {
           }
         }
       }
-    } 
+    }
   }
   
-//TODO: This checks up to 4 levels deep, needs to be a better way to do this dynamically as deep as the $_POST var is
   private function _CheckSavedValues()
   {
-    if ( $this->_checkSavedValues['hidden'] )
-      $this->_setSavedValues['hidden'] = $this->_checkSavedValues['hidden'];
-      
-    foreach( $this->_checkSavedValues['dt'] as $key1 => $value1 )
+    // TODO: Still saves null values
+    function CheckNull( $value )
     {
-      if( is_array( $value1 ) )
-        foreach( $value1 as $key2 => $value2 )
-        {
-          if( is_array( $value2 ) )
-            foreach( $value2 as $key3 => $value3 )
-            {
-              if( !is_array($value3) && isset($value3) && $value3 != '' && $value3 != null )
-              {
-                $this->_setSavedValues['dt'][$key1][$key2][$key3] = $value3;
-              }
-              elseif( is_array($value3) )
-              {
-                foreach( $value3 as $key4 => $value4 )
-                {
-                  if( !is_array($value4) && isset($value4) && $value4 != '' && $value4 != null )
-                  {
-                    $this->_setSavedValues['dt'][$key1][$key2][$key3][$key4] = $value4;
-                  }
-                  elseif( is_array($value4) )
-                  {
-// TODO: DOES THIS ERROR EVER SHOW UP?                  
-                    $this->_errors[] = __( 'Trying to save an array as a value for', 'developer-tools' ) . ' ' . $key1.'['.$key2.']['.$key3.']['.$key4.']';
-                  }             
-                }
-              }
-            }
-          elseif( isset($value2) && $value2 != '' && $value2 != null )
-            $this->_setSavedValues['dt'][$key1][$key2] = $value2; 
-        }
-      elseif( isset($value1) && $value1 != '' && $value1 != null )
-        $this->_setSavedValues['dt'][$key1] = $value1;
+      if( is_array( $value ) )
+        return array_filter( $value, 'CheckNull');
+      else
+        return( strlen($value) );
     }
+    $this->_setSavedValues['dt'] = array_filter( $_POST['dt'], 'CheckNull');
   }
   
   private function _Export()
