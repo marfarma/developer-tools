@@ -80,7 +80,7 @@ class Field
     if( $fieldSettings['required'] )
     {
       $this->field .= '<a class="required_icon';
-      if( ( $fieldSettings['fieldType'] != 'SelectListUploader' && !strlen($value) ) || ( $fieldSettings['fieldType'] == 'SelectListUploader' && !$fieldSettings['selectListSet'] ) )
+      if( ( $fieldSettings['fieldType'] != 'SelectListUploader' && strlen($value) ) || ( $fieldSettings['fieldType'] == 'SelectListUploader' && $fieldSettings['selectListSet'] ) || !strlen($value) )
         $this->field .= ' hidden';
       $this->field .= '" title="' . __( 'This is a required field', 'developer-tools') . '">!</a>';
     }		
