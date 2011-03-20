@@ -404,10 +404,10 @@ class DeveloperTools {
         $viewDataFeatureButtons['advanced_show'] = true;
       
       if( $feature->codeSample ) // code sample button
-        $viewDataFeatureButtons['code_show'] =  ( $this->_valueNotSet ? 'hidden' : 'show' );               
+        $viewDataFeatureButtons['code_show'] =  ( $this->_valueNotSet ? 'show' : 'hidden' );               
 
       if ( $feature->multiple ) // remove button
-        $viewDataFeatureButtons['remove_button'] = ( $this->_valueNotSet ? 'hidden' : 'show' );
+        $viewDataFeatureButtons['remove_button'] = ( $this->_valueNotSet ? 'show' : 'hidden' );
       
       if( $this->_advancedFields || $feature->codeSample || $feature->multiple )
         $this->_LoadView('admin-ui-page-content-group-feature-buttons', $viewDataFeatureButtons);
@@ -452,7 +452,7 @@ class DeveloperTools {
           }
         }
     
-        if( $fieldSettings['required'] && ( strlen($value) ) )
+        if( $fieldSettings['required'] && strlen($value) )
           $this->_valueNotSet = true;
           
         if( $fieldSettings['fieldDataMethod'] )
