@@ -38,7 +38,7 @@ class DeveloperTools {
     
     include_once DEVELOPER_TOOLS_DIR.'libs/krumo/class.krumo.php';
     include_once(ABSPATH . WPINC . '/feed.php');
-    add_filter( 'wp_feed_cache_transient_lifetime', create_function('$fixrss', 'return 1800;') );
+    //add_filter( 'wp_feed_cache_transient_lifetime', create_function('$fixrss', 'return 1800;') );
     
     //Load all these class files in this exact order
     $this->_LoadIncludes(DEVELOPER_TOOLS_INCLUDES_DIR.'models', true);

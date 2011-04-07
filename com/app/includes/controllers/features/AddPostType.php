@@ -6,7 +6,7 @@ class AddPostType extends Feature
 		$this->title				  = __( 'Add post type', 'developer-tools' );
 		$this->multiple				= true;
 		$this->codeSample			= array(
-		  'code' => '&lt;?php <a href="http://codex.wordpress.org/Function_Reference/query_posts" target="_blank">query_posts</a>( \'post_type=<span class="replace-1"></span>\' ); ?&gt;',
+		  'code' => '&lt;?php <a href="http://codex.wordpress.org/Function_Reference/query_posts" target="_blank">query_posts</a>( \'post_type=<span class="replace-1"></span>&post_status=publish\' ); ?&gt;',
 			'placement' => 'right_before',
 			'moreCodexLink' => 'http://codex.wordpress.org/Post_Types'
 		);
