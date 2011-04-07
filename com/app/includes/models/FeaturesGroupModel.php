@@ -238,7 +238,7 @@ class FeaturesGroupModel
       ),      
       __( 'Debug', 'developer-tools' ) =>
         array(
-          'enabled' => true,        
+          'enabled' => false,        
           'uid1' => true,
           'closed' => false,         
           'form' => false,      
