@@ -42,7 +42,7 @@ class EnableCustomHeaderThemeOption extends Feature
 	
 	public function AfterThemeSetup()
 	{
-		add_custom_image_header('', function(){} );
+		add_custom_image_header('', '');
 		define('NO_HEADER_TEXT', true );
 		define('HEADER_IMAGE_WIDTH', $this->value['width']);
 		define('HEADER_IMAGE_HEIGHT', $this->value['height']);

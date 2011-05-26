@@ -76,6 +76,9 @@ If you're willing to help translate my plugin please contact me.
 
 == Changelog ==
 
+= 1.1.3 =
+* Fixed "Enable custom header theme option" feature when using twentyten theme
+
 = 1.1.2 =
 * Added "Enable background image theme option" feature
 * Added "Enable custom header theme option" feature
