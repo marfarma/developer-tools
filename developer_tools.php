@@ -6,7 +6,7 @@ Description: WordPress developer tools. This plugin requires PHP5 or greater and
 Version: 1.1.2
 Author: KJ Meath
 Min WP Version: 3.0
-Max WP Version: 3.1.2
+Max WP Version: 3.1.3
 */
 
 define( "DEVELOPER_TOOLS_VERSION", "1.1.2" );
