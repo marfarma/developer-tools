@@ -1,0 +1,1 @@
+<script type="text/javascript" src="<?php print DEVELOPER_TOOLS_URL . "js/developer-tools-theme-header.js" ?>"></script>

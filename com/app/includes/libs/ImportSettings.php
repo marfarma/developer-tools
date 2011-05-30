@@ -1,11 +1,11 @@
 <?php
 class ImportSettings
 {
-	public $errors;
-	public $messages;
+  public $errors;
+  public $messages;
   public function __construct()
   {
-		$this->_init();
+    $this->_init();
   }
 	
 	private function _init()

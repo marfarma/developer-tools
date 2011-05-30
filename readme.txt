@@ -75,6 +75,7 @@ If you're willing to help translate my plugin please contact me.
 1. Developer Tools - Settings
 
 == Changelog ==
+= 1.1.4 =
 
 = 1.1.3 =
 * Fixed "Enable custom header theme option" feature when using twentyten theme

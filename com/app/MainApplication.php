@@ -106,6 +106,19 @@ class DeveloperTools {
 		
     if( DEVELOPER_TOOLS_ACCESS )
       $this->_DeveloperToolsActivate();
+      
+    global $developer_tools;
+    if(
+      isset($developer_tools['javascript']) && 
+      isset($developer_tools['javascript']['theme']) && 
+      isset($developer_tools['javascript']['theme']['header'])
+    ){
+      $myFile = DEVELOPER_TOOLS_URL . "js/developer-tools-theme-header.js";
+      $fh = fopen($myFile, 'c+') or die("can't open file");
+      fwrite($fh, $developer_tools['javascript']['theme']['header']);
+      fclose($fh);      
+      add_action( 'wp_head', array(&$this, 'ThemeHeaderInclude'));
+    }      
   }
 	
   private function _LoadEnabledFeatures()
@@ -119,12 +132,14 @@ class DeveloperTools {
           $runClass = new $class();
           if( method_exists( $runClass, 'Enabled' ) )
             $runClass->Enabled($value);
-        } 
+        }
       }
     }
   }
   
   public function LoadTranslationFile() { load_plugin_textdomain( 'developer-tools', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); }  
+  
+  public function ThemeHeaderInclude(){ $this->_LoadView( 'theme-header-javascript' ); }  
   
   private function _DeveloperToolsActivate()
   {
@@ -140,6 +155,7 @@ class DeveloperTools {
       
       add_action('admin_init', array(&$this, 'AdminUiPageInit'));
     }
+    
   }
   
   public function AdminUiPageInit()
@@ -250,6 +266,7 @@ class DeveloperTools {
         'end_form' => ( $featuresGroup['form'] ? $featuresGroup['form']['end'] : false )
       );
       $this->_LoadView('admin-ui-page-content-group-footer', $viewData );
+      
     }   
   }
   

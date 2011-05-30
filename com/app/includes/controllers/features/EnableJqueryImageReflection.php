@@ -19,8 +19,11 @@ class EnableJqueryImageReflection extends Feature
 	public function Enabled($value)
 	{	
 		$this->value = $value;
-		if( !IS_WP_ADMIN )
-			add_action('init', array(&$this, 'Init'));
+    
+    $code = DEVELOPER_TOOLS_URL.'libs/imgReflection/jquery.reflection.js';
+    $dependencies = array('jquery');
+    new Javascript($code, $dependencies );
+
 		add_action( 'wp_footer', array(&$this, 'FooterInclude'));
 	}
 	

@@ -3,13 +3,13 @@
 Plugin Name: Developer Tools
 Plugin URI: http://developertools.kjmeath.com
 Description: WordPress developer tools. This plugin requires PHP5 or greater and wordpress 3.x.
-Version: 1.1.3
+Version: 1.1.4
 Author: KJ Meath
 Min WP Version: 3.0
 Max WP Version: 3.1.3
 */
 
-define( "DEVELOPER_TOOLS_VERSION", "1.1.3" );
+define( "DEVELOPER_TOOLS_VERSION", "1.1.4" );
 
 if (version_compare(PHP_VERSION, '5.0.0', '<'))
 {
